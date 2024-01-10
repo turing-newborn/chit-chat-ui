@@ -1,1 +1,1 @@
-# ChitChatUi
+# chit-chat-ui
