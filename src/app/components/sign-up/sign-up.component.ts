@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -58,5 +51,17 @@ export class SignUpComponent {
     const password = formGroup.controls['password'].value;
     const confirmPassword = formGroup.controls['rePassword'].value;
     return password === confirmPassword ? null : { passwordNotMatch: true };
+  }
+
+  resetForm() {
+    this.signupForm.reset();
+  }
+
+  get hasValues() {
+    const value = this.signupForm.value;
+    const fields = ['userName', 'emailId', 'password', 'rePassword'];
+    return fields.reduce((acc, key)=>{
+      return acc || value[key];
+    }, false);
   }
 }
