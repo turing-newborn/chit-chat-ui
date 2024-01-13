@@ -1,0 +1,172 @@
+<div class="container">
+  <div class="form-container">
+    <div class="title">
+      <h1>Sign Up Form</h1>
+    </div>
+    <form [formGroup]="signupForm">
+      <div class="input-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            id="userName"
+            name="userName"
+            placeholder="Enter username"
+            formControlName="userName"
+            type="text"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="
+            formSignupControls.userName.invalid &&
+            (formSignupControls.userName.dirty ||
+              formSignupControls.userName.touched)
+          "
+          class="alert alert-danger form-danger"
+          role="alert"
+        >
+          <mat-error *ngIf="formSignupControls.userName.errors.required">
+            Username is required *
+          </mat-error>
+          <mat-error *ngIf="formSignupControls.userName.errors.minlength">
+            Username should be at least 5 characters long *
+          </mat-error>
+        </span>
+      </div>
+      <div class="input-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            id="emailId"
+            name="emailId"
+            placeholder="Enter email"
+            formControlName="emailId"
+            type="email"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="
+            formSignupControls.emailId.invalid &&
+            (formSignupControls.emailId.dirty ||
+              formSignupControls.emailId.touched)
+          "
+          class="alert alert-danger form-danger"
+          role="alert"
+        >
+          <mat-error *ngIf="formSignupControls.emailId.errors.required">
+            Email is required *
+          </mat-error>
+
+          <mat-error *ngIf="formSignupControls.emailId.errors.email">
+            Enter a valid emailId *
+          </mat-error>
+        </span>
+      </div>
+      <div class="input-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            formControlName="password"
+            [type]="typePassword"
+          />
+          <button
+            [disabled]="signupForm.value.password === ''"
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="checkPasswordVisibility()"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="!passwordVisible"
+          >
+            <mat-icon>{{
+              passwordVisible ? "visibility" : "visibility_off"
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <span
+          *ngIf="
+            formSignupControls.password.invalid &&
+            (formSignupControls.password.dirty ||
+              formSignupControls.password.touched)
+          "
+          class="alert alert-danger form-danger"
+          role="alert"
+        >
+          <mat-error *ngIf="formSignupControls.password.errors.required">
+            Password is required *
+          </mat-error>
+          <mat-error *ngIf="formSignupControls.password.errors.pattern">
+            Password should be atleast 8 characters long and contains at least 1
+            digit, 1 uppercase, 1 lowercase, 1 special symbol *
+          </mat-error>
+        </span>
+      </div>
+      <div class="input-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            id="rePassword"
+            name="rePassword"
+            placeholder="Re-enter password"
+            formControlName="rePassword"
+            [type]="retypePassword"
+          />
+          <button
+            [disabled]="signupForm.value.rePassword === ''"
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="recheckPasswordVisibility()"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="!repasswordVisible"
+          >
+            <mat-icon>{{
+              repasswordVisible ? "visibility" : "visibility_off"
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <span
+          *ngIf="
+            formSignupControls.rePassword.dirty ||
+            formSignupControls.rePassword.touched
+          "
+          class="alert alert-danger form-danger"
+          role="alert"
+        >
+          <mat-error
+            *ngIf="
+              formSignupControls.rePassword.invalid &&
+              formSignupControls.rePassword.errors.required
+            "
+          >
+            Password is required *
+          </mat-error>
+          <mat-error
+            *ngIf="
+              formSignupControls.rePassword.invalid &&
+              formSignupControls.rePassword.errors.pattern
+            "
+          >
+            Password should be atleast 8 characters long and contains at least 1
+            digit, 1 uppercase, 1 lowercase, 1 special symbol *
+          </mat-error>
+          <mat-error *ngIf="signupForm.errors?.['passwordNotMatch']">
+            Confirmed password not match *
+          </mat-error>
+        </span>
+      </div>
+    </form>
+    <div class="btn-group">
+      <button mat-raised-button color="primary">Clear</button>&nbsp;&nbsp;
+      <button mat-raised-button color="primary" [disabled]="signupForm.invalid">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>
