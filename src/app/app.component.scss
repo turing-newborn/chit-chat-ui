@@ -1,8 +1,13 @@
 .background {
+  position: absolute;
   background-image: url("../assets/images/bg.jpeg");
   background-size: cover;
   width: 100%;
   height: 100%;
   z-index: -1;
   opacity: 0.1;
+}
+.display-container {
+  position: relative;
+  z-index: 1000;
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,11 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent {
+  constructor(private router: Router) {}
+  
   login() {
-    console.log('Navigate to Login component');
+    this.router.navigate(['/login']);
   }
 
   signUp() {
-    console.log('Navigate to SignUp component');
+    this.router.navigate(['/sign-up']);
   }
 }
