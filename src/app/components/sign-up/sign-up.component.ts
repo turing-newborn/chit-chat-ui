@@ -55,10 +55,8 @@ export class SignUpComponent {
   }
 
   checkconfirmedPassword(formGroup: FormGroup) {
-    console.log(formGroup);
     const password = formGroup.controls['password'].value;
     const confirmPassword = formGroup.controls['rePassword'].value;
-    console.log(password, confirmPassword);
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
 }
