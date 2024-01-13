@@ -1,0 +1,36 @@
+.main-contsiner {
+  ::ng-deep .mat-drawer-inner-container {
+    overflow: hidden !important;
+  }
+  ::ng-deep .mdc-list-item__primary-text {
+    display: flex !important;
+    align-items: center;
+  }
+  .mdc-list {
+    height: calc(100vh - 117px);
+    overflow-y: auto;
+  }
+  .sidenav-content {
+    height: calc(100% - 30px);
+    padding: 15px;
+  }
+  .sidenav-container {
+    padding: 0 0 5px 0;
+    .sidenav-item {
+      margin-left: 1rem;
+    }
+    .logo-main {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+      .chat-header {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+.mat-drawer-container {
+  height: calc(100vh - 64px);
+  background-color: transparent
+}

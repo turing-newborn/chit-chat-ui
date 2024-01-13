@@ -72,7 +72,7 @@
     </form>
     <div class="btn-group">
       <button mat-raised-button color="primary" [disabled]="!hasValues" (click)="resetForm()">Clear</button>&nbsp;&nbsp;
-      <button mat-raised-button color="primary" [disabled]="loginForm.invalid">
+      <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">
         Login
       </button>
     </div>

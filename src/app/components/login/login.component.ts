@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent {
   passwordVisible: boolean = false;
   typePassword: string = 'password';
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder, private router: Router) {
     this.loginForm = this._fb.group({
       userEmail: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -37,5 +38,9 @@ export class LoginComponent {
     return fields.reduce((acc, key) => {
       return acc || value[key];
     }, false);
+  }
+
+  login() {
+    this.router.navigate(['/chit-chat']);
   }
 }

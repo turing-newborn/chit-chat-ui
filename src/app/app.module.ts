@@ -13,6 +13,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './components/login/login.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatMenuModule } from '@angular/material/menu';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { ChitChatLayoutComponent } from './components/chit-chat-layout/chit-chat-layout.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +27,9 @@ import { LoginComponent } from './components/login/login.component';
     LandingPageComponent,
     SignUpComponent,
     LoginComponent,
+    HeaderComponent,
+    SideNavComponent,
+    ChitChatLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +42,10 @@ import { LoginComponent } from './components/login/login.component';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,41 @@
+<mat-sidenav-container class="main-contsiner">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    class="sidenav-container"
+    [ngStyle]="{ 'width.em': sidenavWidth }"
+    opened="true"
+  >
+    <div class="logo-main">
+      <div class="chat-header">
+        <button mat-raised-button color="primary">
+          <mat-icon>add_circle</mat-icon>
+          Start New Chat
+        </button>
+      </div>
+    </div>
+    <mat-nav-list>
+      <mat-list-item
+        *ngFor="let item of menuItem"
+        [routerLink]="item.id"
+        routerLinkActive="active"
+      >
+        <mat-icon mat-list-icon>person</mat-icon>
+        <div class="sidenav-item">
+          <h5 class="lead">{{ item.title }}</h5>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="sidenav-content">
+    <p>
+      Note: Placing content outside of a when multiple rows are specified is not
+      supported. Positioning toolbar content The toolbar does not perform any
+      positioning of its content. This gives the user full power to position the
+      content as it suits their application. A common pattern is to position a
+      title on the left with some actions on the right. This can be easily
+      accomplished with display: flex
+    </p>
+  </div>
+</mat-sidenav-container>
