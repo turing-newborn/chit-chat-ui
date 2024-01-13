@@ -1,1 +1,80 @@
-<p>login works!</p>
+<div class="container">
+  <div class="form-container">
+    <div class="title">
+      <h1>Login Form</h1>
+    </div>
+    <form [formGroup]="loginForm">
+      <div class="input-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Username or Email Address</mat-label>
+          <input
+            matInput
+            id="userEmail"
+            name="userEmail"
+            placeholder="Enter username or email address"
+            formControlName="userEmail"
+            type="text"
+          />
+        </mat-form-field>
+        <span
+          *ngIf="
+            formLoginControls.userEmail.invalid &&
+            (formLoginControls.userEmail.dirty ||
+              formLoginControls.userEmail.touched)
+          "
+          class="alert alert-danger form-danger"
+          role="alert"
+        >
+          <mat-error *ngIf="formLoginControls.userEmail.errors.required">
+            Username or Email address is required *
+          </mat-error>
+        </span>
+      </div>
+      <div class="input-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            formControlName="password"
+            [type]="typePassword"
+          />
+          <button
+            [disabled]="!loginForm.value.password"
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="checkPasswordVisibility()"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="!passwordVisible"
+          >
+            <mat-icon>{{
+              passwordVisible ? "visibility" : "visibility_off"
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <span
+          *ngIf="
+            formLoginControls.password.invalid &&
+            (formLoginControls.password.dirty ||
+              formLoginControls.password.touched)
+          "
+          class="alert alert-danger form-danger"
+          role="alert"
+        >
+          <mat-error *ngIf="formLoginControls.password.errors.required">
+            Password is required *
+          </mat-error>
+        </span>
+      </div>
+    </form>
+    <div class="btn-group">
+      <button mat-raised-button color="primary" [disabled]="!hasValues" (click)="resetForm()">Clear</button>&nbsp;&nbsp;
+      <button mat-raised-button color="primary" [disabled]="loginForm.invalid">
+        Login
+      </button>
+    </div>
+  </div>
+</div>
