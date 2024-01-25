@@ -1,0 +1,48 @@
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 15px;
+}
+
+::ng-deep .mat-mdc-menu-panel {
+  min-width: 200px !important;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0.5rem;
+}
+.profile-img {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  border-radius: 50%;
+  top: 0.2rem;
+}
+.mat-mdc-menu-item {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.04);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logout-button {
+  background-color: #3f51b5 !important;
+  color: #ffffff !important;
+  height: 2.7rem;
+  width: 6rem;
+  margin: 0.5rem 0 0 0.2rem;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .logo {
+    cursor: pointer;
+  }
+}

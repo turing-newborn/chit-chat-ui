@@ -1,0 +1,41 @@
+<div class="header-container">
+  <mat-toolbar color="primary">
+    <div class="left">
+      <button
+        mat-icon-button
+        class="icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon class="logo-image" svgIcon="chatIcon"></mat-icon>
+      </button>
+      <span class="logo">Chit-Chat</span>
+    </div>
+    <div class="right">
+      <button
+        mat-icon-button
+        class="icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="icon"
+        aria-label="Example icon-button with share icon"
+        [matMenuTriggerFor]="userMenu"
+      >
+        <!-- <ngx-avatar size="40" value="SL"> </ngx-avatar> -->
+        <mat-icon class="logo-image" svgIcon="chatIcon"></mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>
+          <img *ngIf="imgSrc" class="profile-img" [src]="imgSrc" alt="" />
+          <span *ngIf="!imgSrc">AK</span>
+        </button>
+        <button class="logout-button" mat-raised-button>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+</div>
