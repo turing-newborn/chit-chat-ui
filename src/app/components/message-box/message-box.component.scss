@@ -1,0 +1,15 @@
+.input-container {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 240px);
+}
+.message {
+  height: 38rem;
+  overflow: auto;
+  padding: 0 15px;
+}
+.chat-header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}

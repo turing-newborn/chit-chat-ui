@@ -9,6 +9,7 @@
     border: 1px solid black;
     border-radius: 5%;
     padding: 1rem 3rem 2rem 3rem;
+    background-color: #fff;
   }
 
   .btn-group {
@@ -25,6 +26,16 @@
     text-align: center;
     margin-bottom: 2rem;
     color: #3f51b5;
+  }
+
+  .account {
+    margin-top: 1.5rem;
+    font-size: 17px;
+    .login-account {
+      color: #3f51b5;
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 }
 
