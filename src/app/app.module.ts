@@ -20,6 +20,10 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { ChitChatLayoutComponent } from './components/chit-chat-layout/chit-chat-layout.component';
+import { MessageBoxComponent } from './components/message-box/message-box.component';
+import { MessageInputComponent } from './components/message-input/message-input.component';
+import { IncomingMessageComponent } from './components/incoming-message/incoming-message.component';
+import { OutgoingMessageComponent } from './components/outgoing-message/outgoing-message.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,10 @@ import { ChitChatLayoutComponent } from './components/chit-chat-layout/chit-chat
     HeaderComponent,
     SideNavComponent,
     ChitChatLayoutComponent,
+    MessageBoxComponent,
+    MessageInputComponent,
+    IncomingMessageComponent,
+    OutgoingMessageComponent,
   ],
   imports: [
     BrowserModule,

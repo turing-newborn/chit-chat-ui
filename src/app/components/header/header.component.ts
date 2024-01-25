@@ -9,15 +9,4 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class HeaderComponent {
   imgSrc = '../../../assets/images/chat-svg-image.svg';
-  constructor(
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
-  ) {
-    this.matIconRegistry.addSvgIcon(
-      'chatImage',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        './../../../assets/images/chat-svg-image.svg'
-      )
-    );
-  }
 }

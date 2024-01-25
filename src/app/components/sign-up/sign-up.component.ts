@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class SignUpComponent {
   strongPasswordRegx: RegExp =
     /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d)(?=.*?[#?!@$%^&*-]).{8,}$/;
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder, private route: Router) {
     this.signupForm = this._fb.group(
       {
         userName: ['', [Validators.required, Validators.minLength(5)]],
@@ -61,8 +62,12 @@ export class SignUpComponent {
   get hasValues() {
     const value = this.signupForm.value;
     const fields = ['userName', 'emailId', 'password', 'rePassword'];
-    return fields.reduce((acc, key)=>{
+    return fields.reduce((acc, key) => {
       return acc || value[key];
     }, false);
+  }
+
+  onLogin() {
+    this.route.navigate(['/login']);
   }
 }

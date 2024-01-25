@@ -1,0 +1,18 @@
+<div class="message-input">
+  <div class="input-field">
+    <mat-form-field class="input-width">
+      <mat-label>Type message here ...</mat-label>
+      <input matInput [(ngModel)]="message" />
+      <button
+        matSuffix
+        mat-mini-fab
+        color="primary"
+        class="send-icon"
+        aria-label="icon-button with menu icon"
+        [disabled]="!message"
+      >
+        <mat-icon svgIcon="sendIcon"></mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</div>

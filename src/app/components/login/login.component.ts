@@ -43,4 +43,8 @@ export class LoginComponent {
   login() {
     this.router.navigate(['/chit-chat']);
   }
+
+  onSignUp(){
+    this.router.navigate(['/sign-up']);
+  }
 }
