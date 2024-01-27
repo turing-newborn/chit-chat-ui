@@ -7,4 +7,8 @@ export const svgIcons = [
     iconName: 'sendIcon',
     iconUrl: '../../../assets/images/send.svg',
   },
+  {
+    iconName: 'searchIcon',
+    iconUrl: '../../../assets/images/search.svg',
+  },
 ];

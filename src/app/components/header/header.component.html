@@ -32,7 +32,7 @@
           <img *ngIf="imgSrc" class="profile-img" [src]="imgSrc" alt="" />
           <span *ngIf="!imgSrc">AK</span>
         </button>
-        <button class="logout-button" mat-raised-button>
+        <button class="logout-button" mat-raised-button (click)="loggedOut()">
           <span>Logout</span>
         </button>
       </mat-menu>

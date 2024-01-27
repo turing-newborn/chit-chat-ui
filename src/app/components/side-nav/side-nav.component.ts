@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SearchBoxComponent } from '../search-box/search-box.component';
 
 @Component({
   selector: 'app-side-nav',
@@ -26,4 +28,16 @@ export class SideNavComponent {
       title: 'Contact',
     },
   ];
+
+  constructor(private dialog: MatDialog) {}
+
+  openSearchBox() {
+     this.dialog.open(SearchBoxComponent,{
+       width: '57%',
+       height: '70%',
+       position: {
+         top: '4.5%'
+       }
+     })
+  }
 }

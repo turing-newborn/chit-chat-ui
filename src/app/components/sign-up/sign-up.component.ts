@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,11 @@ export class SignUpComponent {
   strongPasswordRegx: RegExp =
     /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d)(?=.*?[#?!@$%^&*-]).{8,}$/;
 
-  constructor(private _fb: FormBuilder, private route: Router) {
+  constructor(
+    private _fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.signupForm = this._fb.group(
       {
         userName: ['', [Validators.required, Validators.minLength(5)]],
@@ -68,6 +73,25 @@ export class SignUpComponent {
   }
 
   onLogin() {
-    this.route.navigate(['/login']);
+    this.router.navigate(['/login']);
+  }
+
+  signUp() {
+    const user: User = {
+      userName: this.signupForm.value.userName,
+      email: this.signupForm.value.emailId,
+      password: this.signupForm.value.password,
+    };
+    this.authService.signUp(user).subscribe((response) => {
+      console.log('SuccessFully signup');
+      localStorage.clear();
+      localStorage.setItem(
+        'token',
+        btoa(
+          this.signupForm.value.userName + ':' + this.signupForm.value.password
+        )
+      );
+      this.router.navigate(['/chit-chat']);
+    });
   }
 }

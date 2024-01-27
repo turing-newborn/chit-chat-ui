@@ -1,0 +1,33 @@
+<div class="search-input">
+  <div class="input-field">
+    <mat-form-field class="input-width">
+      <mat-label>Search by username</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (keyup)="filterByUserName()"/>
+      <button
+        matSuffix
+        mat-icon-button
+        color="primary"
+        class="search-icon"
+        aria-label="icon-button with menu icon"
+        [disabled]="!searchQuery"
+        (click)="filterByUserName()"
+      >
+        <mat-icon svgIcon="searchIcon"></mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="list-container">
+    <mat-nav-list>
+      <mat-list-item
+        *ngFor="let item of filteredResults"
+        [routerLink]="item.id"
+        routerLinkActive="active"
+      >
+        <mat-icon mat-list-icon>person</mat-icon>
+        <div class="sidenav-item">
+          <h5 class="lead">{{ item.title }}</h5>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+  </div>
+</div>
