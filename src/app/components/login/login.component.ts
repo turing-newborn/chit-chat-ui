@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,11 @@ export class LoginComponent {
   passwordVisible: boolean = false;
   typePassword: string = 'password';
 
-  constructor(private _fb: FormBuilder, private router: Router) {
+  constructor(
+    private _fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.loginForm = this._fb.group({
       userEmail: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -41,10 +47,25 @@ export class LoginComponent {
   }
 
   login() {
-    this.router.navigate(['/chit-chat']);
+    const user: User = {
+      userName: this.loginForm.value.userEmail,
+      email: this.loginForm.value.userEmail,
+      password: this.loginForm.value.password,
+    };
+    this.authService.login(user).subscribe((response) => {
+      console.log('Logged In Successfull');
+      localStorage.clear();
+      localStorage.setItem(
+        'token',
+        btoa(
+          this.loginForm.value.userEmail + ':' + this.loginForm.value.password
+        )
+      );
+      this.router.navigate(['/chit-chat']);
+    });
   }
 
-  onSignUp(){
+  onSignUp() {
     this.router.navigate(['/sign-up']);
   }
 }
