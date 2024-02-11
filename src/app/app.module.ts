@@ -28,6 +28,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { initConfig } from './providers/config';
 import { ConfigService } from './services/config/config.service';
+import { StompService } from './services/web-socket/stomp.service';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { ConfigService } from './services/config/config.service';
       deps: [ConfigService],
       multi: true,
     },
+    StompService
   ],
   bootstrap: [AppComponent],
 })
